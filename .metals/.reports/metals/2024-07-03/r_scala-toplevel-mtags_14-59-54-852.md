@@ -1,4 +1,4 @@
-
+error id: file://<WORKSPACE>/.scala-build/Scala_f4dd477a3a/src_generated/main/evenfb.scala:[511..514) in Input.VirtualFile("file://<WORKSPACE>/.scala-build/Scala_f4dd477a3a/src_generated/main/evenfb.scala", "
 
 final class evenfb$_ {
 def args = evenfb_sc.args$
@@ -20,13 +20,7 @@ object EvFib{
         return sum
     }
 
-    def recur(n :Int): Int={
-        if(n == 0) return 0
-        if(n == 1) return 2
-        else
-            4*recur(n-1)+recur(n-2)
-
-    }
+    def 
     def main(args: Array[String]): Unit={
         println(fn(4000000))
     }
@@ -54,3 +48,11 @@ object evenfb_sc {
 
 export evenfb_sc.script as `evenfb`
 
+")
+file://<WORKSPACE>/.scala-build/Scala_f4dd477a3a/src_generated/main/evenfb.scala
+file://<WORKSPACE>/.scala-build/Scala_f4dd477a3a/src_generated/main/evenfb.scala:24: error: expected identifier; obtained def
+    def main(args: Array[String]): Unit={
+    ^
+#### Short summary: 
+
+expected identifier; obtained def

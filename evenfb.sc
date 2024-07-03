@@ -13,6 +13,14 @@ object EvFib{
         }
         return sum
     }
+
+    def recur(n :Int): Int={
+        if(n == 0) return 0
+        if(n == 1) return 2
+        else
+            4*recur(n-1)+recur(n-2)
+
+    }
     def main(args: Array[String]): Unit={
         println(fn(4000000))
     }
