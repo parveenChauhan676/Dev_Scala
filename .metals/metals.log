@@ -4760,3 +4760,55 @@ Caused by: java.util.NoSuchElementException: BatchedFunction
 
 2024.07.03 15:20:30 WARN  Flyway upgrade recommended: H2 2.2.224 is newer than this version of Flyway and support has not been tested. The latest supported version of H2 is 2.2.220.
 2024.07.03 15:20:30 INFO  no build target found for /home/parveen/Dev_Training/Practice/test.sc. Using presentation compiler with project's scala-library version: 3.3.3
+Jul 03, 2024 3:24:41 PM org.eclipse.lsp4j.jsonrpc.RemoteEndpoint fallbackResponseError
+SEVERE: Internal error: java.util.NoSuchElementException: BatchedFunction
+java.util.concurrent.CompletionException: java.util.NoSuchElementException: BatchedFunction
+	at java.base/java.util.concurrent.CompletableFuture.encodeThrowable(CompletableFuture.java:332)
+	at java.base/java.util.concurrent.CompletableFuture.completeThrowable(CompletableFuture.java:347)
+	at java.base/java.util.concurrent.CompletableFuture$UniAccept.tryFire(CompletableFuture.java:708)
+	at java.base/java.util.concurrent.CompletableFuture.postComplete(CompletableFuture.java:510)
+	at java.base/java.util.concurrent.CompletableFuture.completeExceptionally(CompletableFuture.java:2162)
+	at scala.meta.internal.metals.CancelTokens$.$anonfun$future$1(CancelTokens.scala:40)
+	at scala.meta.internal.metals.CancelTokens$.$anonfun$future$1$adapted(CancelTokens.scala:38)
+	at scala.concurrent.impl.Promise$Transformation.run(Promise.scala:484)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
+	at java.base/java.lang.Thread.run(Thread.java:833)
+Caused by: java.util.NoSuchElementException: BatchedFunction
+	at scala.meta.internal.metals.BatchedFunction.<init>(BatchedFunction.scala:101)
+	at scala.meta.internal.metals.MetalsLspService.<init>(MetalsLspService.scala:227)
+	at scala.meta.internal.metals.ProjectMetalsLspService.<init>(ProjectMetalsLspService.scala:93)
+	at scala.meta.internal.metals.WorkspaceLspService.createService(WorkspaceLspService.scala:213)
+	at scala.meta.internal.metals.WorkspaceLspService.$anonfun$workspaceFolders$1(WorkspaceLspService.scala:220)
+	at scala.collection.immutable.List.map(List.scala:247)
+	at scala.meta.internal.metals.WorkspaceFolders.initServices(WorkspaceFolders.scala:36)
+	at scala.meta.internal.metals.WorkspaceFolders.$anonfun$changeFolderServices$14(WorkspaceFolders.scala:84)
+	at java.base/java.util.concurrent.atomic.AtomicReference.getAndUpdate(AtomicReference.java:188)
+	at scala.meta.internal.metals.WorkspaceFolders.changeFolderServices(WorkspaceFolders.scala:84)
+	at scala.meta.internal.metals.WorkspaceLspService.didChangeWorkspaceFolders(WorkspaceLspService.scala:617)
+	at scala.meta.metals.lsp.DelegatingScalaService.didChangeWorkspaceFolders(DelegatingScalaService.scala:222)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:568)
+	at org.eclipse.lsp4j.jsonrpc.services.GenericEndpoint.lambda$recursiveFindRpcMethods$0(GenericEndpoint.java:65)
+	at org.eclipse.lsp4j.jsonrpc.services.GenericEndpoint.notify(GenericEndpoint.java:160)
+	at org.eclipse.lsp4j.jsonrpc.RemoteEndpoint.handleNotification(RemoteEndpoint.java:231)
+	at org.eclipse.lsp4j.jsonrpc.RemoteEndpoint.consume(RemoteEndpoint.java:198)
+	at org.eclipse.lsp4j.jsonrpc.json.StreamMessageProducer.handleMessage(StreamMessageProducer.java:185)
+	at org.eclipse.lsp4j.jsonrpc.json.StreamMessageProducer.listen(StreamMessageProducer.java:97)
+	at org.eclipse.lsp4j.jsonrpc.json.ConcurrentMessageProcessor.run(ConcurrentMessageProcessor.java:114)
+	at java.base/java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:539)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
+	... 3 more
+
+2024.07.03 15:24:49 INFO  compiling scala_f4dd477a3a (1 scala source)
+2024.07.03 15:24:49 INFO  time: compiled Scala_f4dd477a3a in 91ms
+2024.07.03 15:24:57 INFO  compiling scala_f4dd477a3a (1 scala source)
+2024.07.03 15:24:57 INFO  time: compiled Scala_f4dd477a3a in 0.14s
+2024.07.03 15:24:59 INFO  compiling scala_f4dd477a3a (1 scala source)
+2024.07.03 15:24:59 INFO  time: compiled Scala_f4dd477a3a in 0.14s
+2024.07.03 15:25:07 INFO  compiling scala_f4dd477a3a (1 scala source)
+2024.07.03 15:25:07 INFO  time: compiled Scala_f4dd477a3a in 0.14s
+2024.07.03 15:25:19 INFO  compiling scala_f4dd477a3a (1 scala source)
+2024.07.03 15:25:19 INFO  time: compiled Scala_f4dd477a3a in 0.16s

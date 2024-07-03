@@ -19,7 +19,6 @@ object EvFib{
         }
         return sum
     }
-
     def recur(n :Int): Int={
         if(n == 0) return 0
         if(n == 1) return 2
