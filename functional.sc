@@ -16,5 +16,11 @@ object mainobject{
     def printArgs2(args: Array[String]): Unit = {
         args.foreach(println)
     }
+    def main(args: Array[String]): Unit={
+        val arr : Array[String]= Array("hii", "there" , "please")
+        printArgs1(arr)
+        println(" ")
+        printArgs2(arr)
+    }
 
 }
