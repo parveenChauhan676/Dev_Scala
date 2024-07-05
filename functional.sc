@@ -43,7 +43,8 @@ object mainobject{
          isPrimeTailRec(n/2,true)
     }
     println(isPrime(2003))//trye
-    println(isPrime(69))//falsej
+    println(isPrime(69))//false
+
 
 }
 
