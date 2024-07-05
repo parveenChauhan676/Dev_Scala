@@ -10,3 +10,10 @@ Rational$.class
 Rational.class
 rational.class
 rational$.class
+Rational$delayedInit$body.class
+my.class
+my$.class
+my$delayedInit$body.class
+imported.class
+imported$.class
+imported$delayedInit$body.class
