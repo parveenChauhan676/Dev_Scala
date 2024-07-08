@@ -17,3 +17,6 @@ my$delayedInit$body.class
 imported.class
 imported$.class
 imported$delayedInit$body.class
+reader.class 
+reader$.class
+reader$delayedInit$body.class
