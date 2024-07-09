@@ -24,8 +24,6 @@ object PrimePermutation extends App{
         val nonTarget = Set(1487, 4817, 8147)  
 
         // val primes = LazyList.from(lowerBound).filter(isPrime).takeWhile(_ <= upperBound)
-        // for(prime <- primes)println(prime)
-        // println(primes)
 
         // val a= for {
         //     prime <- primes
