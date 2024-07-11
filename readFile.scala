@@ -2,6 +2,7 @@ import scala.io
 import scala.io.Source
 import imported.filesHere
 object reader extends App{
+    // to access files
     def processFile(filename: String, width:Int)={
         val source = Source.fromFile(filename)
         for(line<-source.getLines())
