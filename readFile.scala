@@ -1,6 +1,21 @@
-import java.io
+import scala.io
+import scala.io.Source
 import imported.filesHere
 object reader extends App{
+    def processFile(filename: String, width:Int)={
+        val source = Source.fromFile(filename)
+        for(line<-source.getLines())
+            processLine(filename,width,line)
+    }
+
+    def processLine(filename: String, width:Int , line :String)={
+        if(line.trim.length>width)
+            println(filename + ": "+ line.trim())
+    }
+
+    // processFile("file.txt",52)
+
+
     def fileLines(file : java.io.File)=
         scala.io.Source.fromFile(file).getLines().toArray
 
