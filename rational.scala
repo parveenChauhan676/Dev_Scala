@@ -62,6 +62,8 @@ object Rational extends App{
     println("hii")
     
     println("I'm running")
+
+    println("hii i'm sad")
     println("after multiplication " +d) // gives 3/4
     println(math.pow(4,2).toInt)
     println(x)
