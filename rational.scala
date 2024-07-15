@@ -31,6 +31,10 @@ class Rational(n:Int,d:Int){
         else gcd(num2,num1%num2)
     }
 
+    def **(inp: Int): Rational={
+        new Rational(math.pow(numer,n).toInt,math.pow(denom,n).toInt)
+    }
+
     override def toString= s"$numer/$denom"
 
     //now begin method overloading...
