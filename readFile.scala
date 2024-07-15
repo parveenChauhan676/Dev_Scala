@@ -2,6 +2,11 @@ import scala.io
 import scala.io.Source
 import imported.filesHere
 object reader extends App{
+
+
+    // doubt 
+    val numbers = Array(1,2,3,4)
+    numbers.foreach
     // to access files
     def processFile(filename: String, width:Int)={
         val source = Source.fromFile(filename)

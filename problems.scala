@@ -1,8 +1,11 @@
 import scala.collection.mutable.ArrayBuffer
+import scala.io.Source
+import Array._
 
 
-// Question 49 : Prime Permutations
-object PrimePermutation extends App{
+object Problems extends App{
+
+    // Problem 49 : Prime Permutations
     // to check if a number is prime or not
     def isPrime(n:Int): Boolean={
          def isPrimeTailRec(t:Int, isStillPrime: Boolean): Boolean={
@@ -17,33 +20,12 @@ object PrimePermutation extends App{
         n.toString.map(_.asDigit).toList
     }
 
-    def solve(): Long = {
+    def primePermutation(): Long = {
         val stepsize= 3330  
         val lowerBound = 1000
         val upperBound = 10000 - 2 * stepsize  
         val nonTarget = Set(1487, 4817, 8147)  
-
-        // val primes = LazyList.from(lowerBound).filter(isPrime).takeWhile(_ <= upperBound)
-
-        // val a= for {
-        //     prime <- primes
-        //      candidates = Seq(prime, prime + stepsize, prime + 2 * stepsize)
-        //      if candidates.forall(isPrime)
-        //      if !nonTarget(candidates.head)
-        //      if {
-        //         println(candidates)
-        //          val digits = candidates.map(digitsOf).map(_.sorted)
-        //          val Seq(aDigits, bDigits, cDigits) = digits
-        //          aDigits == bDigits && bDigits == cDigits
-                
-        //      }
-        // } yield {
-        // val base = 10000
-        // candidates(0) * base * base + candidates(1) * base + candidates(2)
-        // }
-        
-        val primes = (lowerBound to upperBound).filter(isPrime)
-
+        val primes = (lowerBound to upperBound).filter(isPrime)//sequence 
         val result = primes.view.flatMap { prime =>
           val candidates = Seq(prime, prime + stepsize, prime + 2 * stepsize)
           if (candidates.forall(isPrime) && !nonTarget(candidates.head)) {
@@ -56,41 +38,45 @@ object PrimePermutation extends App{
           } else None
         }
         result.head
-        
+
     }
+    println( "12 digit no. of Prime Permutations : "+ primePermutation())  
+    //Problem 49 ends here
 
-    println(solve())
+
+    // Problem 2: Even Fibonacci Numbers
+    def SumEvenFib(upperBound : Int): Int={
         
-
-    
-}
-
-
-object EvFib{
-    // here the Int lim is the limit on the higest fibonacci number for our example it is set to 4 million
-    def fn(lim: Int): Long={
-        var a=0
-        var b=2
-        // first two even fibonacci numbers a and b
-        var sum=2
-        while(4*b+a<=lim){
-            var temp=a
-            sum+=4*b+a
-            a=b
-            b=4*b+temp
+        def helper( prevNum2 : Int,prevNum1 : Int ,currNum :Int, currSum:Int): Int={
+            if(4*currNum+prevNum1 >= upperBound) return currSum 
+            else helper(prevNum1, currNum, 4*currNum+prevNum1, currSum+4*currNum+prevNum1)   
         }
-        return sum
+        helper(0,2,8,10)
+        
     }
-    def recur(n :Int): Int={
-        if(n == 0) return 0
-        if(n == 1) return 2
-        else
-            4*recur(n-1)+recur(n-2)
+    println("Sum of Even Primes : " + SumEvenFib(4000000))
+    //Problem 2 ends here
 
-    }
-    def main(args: Array[String]): Unit={
-        println(fn(4000000))
-    }
 
-    
+    //Problem 1: Multiples of 3 or 5
+    def sumOfMultiples(num1 : Int,  num2 :Int )={
+        val Nums= range(1, 1000).filter(x => x%num1==0 || x%num2==0).toList
+        Nums.sum
+    }
+    println("Sum of Multiples : "+ sumOfMultiples(3,5))
+    // Problem 1 ends here
+
+    // Problem 3: Largest Prime Factor
+    def largestPrimeFactor(num : Long)={
+      def largestPrimeFactorHelper(n: Long, factor: Long): Long =
+      if (factor * factor > n) n
+      else if (n % factor == 0) largestPrimeFactorHelper(n / factor, factor)
+      else largestPrimeFactorHelper(n, factor + 1)
+
+      largestPrimeFactorHelper(num, 2L)
+    }
+    println("Largest Prime Factor is : " + largestPrimeFactor(600851475143L))
+    // Problem 3 ends here
+
+    // Problem 
 }
