@@ -53,12 +53,15 @@ class Rational(n:Int,d:Int){
 object Rational extends App{
     val a = new Rational(3,2)
     val b = new Rational(1,2)
+        
     val c = a+b //or we can use a.+b (using it as an expressin instead of operator)
     val d= a*b
     val x = a^3
     println("after addition "  +c  ) //  gives 2/1
+
     println("hii")
-    println("code is running")
+    
+    println("I'm running")
     println("after multiplication " +d) // gives 3/4
     println(math.pow(4,2).toInt)
     println(x)

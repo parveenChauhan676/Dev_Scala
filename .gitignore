@@ -23,4 +23,6 @@ Problems$.class
 Problems$delayedInit$body.class
 fileMatcher.class
 fileMatcher$.class
- 
+fileMatcher$delayedInit$body.class
+file.txt
+

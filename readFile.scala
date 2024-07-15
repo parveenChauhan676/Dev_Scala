@@ -16,7 +16,7 @@ object reader extends App{
             println(filename + ": "+ line.trim())
     }
 
-    // processFile("file.txt",52)
+    processFile("file.txt",12)
 
 
     def fileLines(file : java.io.File)=
