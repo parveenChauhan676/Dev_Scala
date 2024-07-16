@@ -28,4 +28,8 @@ file.txt
 Curry.class
 Curry$.class
 Curry$delayedInit$body.class
+byName.class
+byName$.class 
+byName$delayedInit$body.class
+
 

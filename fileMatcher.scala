@@ -42,3 +42,28 @@ object Curry extends App{
     println("using curried function : " + currySum(1)(2))
     println("using normal addition : " +normalSum(1,2))
 }
+
+object byName extends App{
+    val set = false
+    //in call by value approach the value of the parameter is avaluated before the function runtime.
+    def callByValue(condition: Boolean)={
+        if(set && condition)
+        throw new AssertionError
+    }
+
+    //the value of the parameter is only evaluated if the parameter is called inside the function body
+    def callByName(condition : => Boolean)={
+        if(set && condition)
+        throw new AssertionError
+    }  
+
+    val condition = (5/0==0)
+
+    callByValue(condition)// as in call by value function the value of the parameter condition is evaluate before the function runs 
+    // this line gives exception like division by zero.
+
+    callByName(condition)//this line will not give any exception like division by zero because the parameter values never gets called.
+    // as the if statement returns false and the functions terminated there itself without callin the value of parametere - condition 
+
+
+}
