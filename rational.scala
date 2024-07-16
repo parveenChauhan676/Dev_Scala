@@ -56,7 +56,10 @@ object Rational {
     def main(args: Array[String])={
         val c = a^3
         println(c)
-        println("hii")
+        
+        val d = a+b 
+        println(d)
+        
 
     }
     
