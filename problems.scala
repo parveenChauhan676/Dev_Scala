@@ -1,7 +1,7 @@
 import scala.collection.mutable.ArrayBuffer
 import scala.io.Source
 import Array._
-
+import rational._
 
 object Problems extends App{
 
@@ -78,7 +78,7 @@ object Problems extends App{
     println("Largest Prime Factor is : " + largestPrimeFactor(600851475143L))
     // Problem 3 ends here
 
-
+    
     
   
 }
