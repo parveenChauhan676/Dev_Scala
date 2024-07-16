@@ -25,4 +25,7 @@ fileMatcher.class
 fileMatcher$.class
 fileMatcher$delayedInit$body.class
 file.txt
+Curry.class
+Curry$.class
+Curry$delayedInit$body.class
 
