@@ -78,8 +78,7 @@ object Problems extends App{
     println("Largest Prime Factor is : " + largestPrimeFactor(600851475143L))
     // Problem 3 ends here
 
-     
-    
+
     
   
 }

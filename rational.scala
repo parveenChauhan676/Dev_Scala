@@ -1,4 +1,4 @@
-package rational
+package  rational
 import scala.math._
 class Rational(n:Int,d:Int){
     require(d!=0)
@@ -50,21 +50,15 @@ class Rational(n:Int,d:Int){
     def /(inp:Int): Rational= new Rational(numer,denom*inp)
 }
  
-object Rational extends App{
+object Rational {
     val a = new Rational(3,2)
     val b = new Rational(1,2)
-        
-    val c = a+b //or we can use a.+b (using it as an expressin instead of operator)
-    val d= a*b
-    val x = a^3
-    println("after addition "  +c  ) //  gives 2/1
+    def main(args: Array[String])={
+        val c = a^3
+        println(c)
+        println("hii")
 
-    println("hii")
+    }
     
-    println("I'm running")
 
-    println("hii i'm sad")
-    println("after multiplication " +d) // gives 3/4
-    println(math.pow(4,2).toInt)
-    println(x)
 }
