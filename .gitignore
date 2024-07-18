@@ -31,5 +31,22 @@ Curry$delayedInit$body.class
 byName.class
 byName$.class 
 byName$delayedInit$body.class
+Spiral.class
+Spiral$.class
+LineElement.class
+Element$UniformElement.class
+Element$LineElement.class
+Element$ArrayElement.class
+Element$.class
+Element.class
+check.class
+ArrayElement.class
+Signal.class
+Signal$.class 
+Signal$Green.class 
+Signal$Red.class 
+Signal$Yellow.class 
+TrafficSimulation.class 
+TrafficSimulation$.class 
 
 
