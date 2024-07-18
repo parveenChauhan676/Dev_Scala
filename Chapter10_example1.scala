@@ -1,19 +1,19 @@
 abstract class Signal {
-  def color: String
+  def color: String  //declared as abstract method
 
-  def description: String
+  def description: String //declared as abstract method
 
   override def toString: String = s"$color signal - $description"
 }
 
-object Signal {
+object Signal { //factory object
   private class Red extends Signal {
-    val color = "Red"
-    val description = "Stop"
+    val color = "Red"  //overriding the method by making it field
+    val description = "Stop" //overriding the method by making it field
   }
 
   private class Yellow extends Signal {
-    val color = "Yellow"
+    val color = "Yellow" 
     val description = "Prepare to stop or go"
   }
 
@@ -22,11 +22,14 @@ object Signal {
     val description = "Go"
   }
 
+  //*****factory methods*****{
   def red(): Signal = new Red
 
   def yellow(): Signal = new Yellow
 
   def green(): Signal = new Green
+  //}********
+
 }
 
 object TrafficSimulation {
