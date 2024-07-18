@@ -41,5 +41,6 @@ object TrafficSimulation {
     println(redSignal)
     println(yellowSignal)
     println(greenSignal)
+    
   }
 }

@@ -71,6 +71,7 @@ object Car{ //factory object
         val car1= Car(DELUXE)
         println(s"bookig price is ${car1.bookingPrice}")
         println(s"no. of cars available = ${car1.availability}")
+        
     }
 
 }
