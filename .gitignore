@@ -4,6 +4,7 @@ mainobject$.class
 .metals
 .scala-build
 .vscode
+.idea
 Rational$.class
 Rational.class
 rational.class
@@ -53,5 +54,12 @@ Car$.class
 Car$deluxeCar.class
 Car$luxuryCar.class
 Car$standardCar.class
+CarDetails.class
+CarDetails$.class
+ElectricCar.class
+GasolineCar.class
+HybridCar.class
+Vehicle.class
+
 
 

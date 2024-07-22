@@ -91,6 +91,6 @@ object Spiral {
     def main(args: Array[String]) = {
         val nSides = args(0).toInt
         println(spiral(nSides, 0))
-        
+
     }
 }
