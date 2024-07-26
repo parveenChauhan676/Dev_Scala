@@ -2,19 +2,17 @@
 import scala.io.Source
 
 object FunctionalPokerHands {
-  // Enumeration for hand ranks
+  
   object HandRank extends Enumeration {
     type HandRank = Value
     val HighCard, OnePair, TwoPairs, ThreeOfAKind, Straight, Flush, FullHouse, FourOfAKind, StraightFlush, RoyalFlush = Value
   }
 
   import HandRank._
+  
+  case class Card(value: Char, suit: Char)//card have a value and a suit associated with it
 
-  // Class to represent a card
-  case class Card(value: Char, suit: Char)
-
-  // Class to represent a hand with its rank and cards
-  case class Hand(cards: List[Card], rank: HandRank, rankingValues: List[Int])
+  case class Hand(cards: List[Card], rank: HandRank, rankingValues: List[Int])// each hand have , its rank , list of cards , and effective values making the rank
 
   object Hand {
     def apply(cardStrings: List[String]): Hand = {
@@ -85,8 +83,6 @@ object FunctionalPokerHands {
 
     
 
-    
-  
     
   def main(args: Array[String]): Unit = {
     val filename = "poker.txt"
