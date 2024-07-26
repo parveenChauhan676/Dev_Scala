@@ -1,11 +1,13 @@
+
 import scala.io.Source
 
-object PokerHands {
+object FunctionalPokerHands {
   // Enumeration for hand ranks
   object HandRank extends Enumeration {
     type HandRank = Value
     val HighCard, OnePair, TwoPairs, ThreeOfAKind, Straight, Flush, FullHouse, FourOfAKind, StraightFlush, RoyalFlush = Value
   }
+
   import HandRank._
 
   // Class to represent a card
@@ -27,7 +29,7 @@ object PokerHands {
       case 'Q' => 12
       case 'K' => 13
       case 'A' => 14
-      case n => n.toInt
+      case n => n.asDigit
     }
 
     def evaluateHand(cards: List[Card]): (HandRank, List[Int]) = {
@@ -38,29 +40,54 @@ object PokerHands {
       val isStraight = values.sliding(2).forall(pair => pair(0) - pair(1) == 1) || values == List(14, 5, 4, 3, 2)
       val groups = values.groupBy(identity).toList.sortBy(-_._2.length)
 
-      (isFlush, isStraight, groups) match {
-        case (true, true, _) if values.head == 14 => (RoyalFlush, values)
-        case (true, true, _) => (StraightFlush, if (values == List(14, 5, 4, 3, 2)) List(5, 4, 3, 2, 1) else values)
-        case (_, _, (value, four) :: _) if four.length == 4 => (FourOfAKind, value :: values.filter(_ != value))
-        case (_, _, (three, _) :: (two, _) :: _) if three.length == 3 && two.length == 2 => (FullHouse, List(three, two))
-        case (true, _, _) => (Flush, values)
-        case (_, true, _) => (Straight, if (values == List(14, 5, 4, 3, 2)) List(5, 4, 3, 2, 1) else values)
-        case (_, _, (three, _) :: rest) if three.length == 3 => (ThreeOfAKind, three :: rest.flatMap(_._1))
-        case (_, _, (two1, _) :: (two2, _) :: rest) if two1.length == 2 && two2.length == 2 => (TwoPairs, two1 :: two2 :: rest.flatMap(_._1))
-        case (_, _, (two, _) :: rest) if two.length == 2 => (OnePair, two :: rest.flatMap(_._1))
-        case _ => (HighCard, values)
+      groups match {
+        case head :: tail if isFlush && isStraight && values.head==14 => 
+            (RoyalFlush,values)//RoyalFlush
+
+        case head :: tail if isFlush && isStraight =>
+            (StraightFlush, if (values == List(14, 5, 4, 3, 2)) List(5, 4, 3, 2, 1) else values)//StraightFLush
+
+        case (value1, group1) :: tail if group1.length == 4 =>
+            (FourOfAKind, value1 :: values.filter(_ != value1))//FourOfAKind
+
+        case (value1, group1) :: (value2, group2) :: tail if group1.length == 3 && group2.length == 2 =>
+            (FullHouse, List(value1, value2))  //FullHouse
+        
+        case head :: tail if isFlush =>
+            (Flush, values)//Flush
+
+        case head :: tail if isStraight =>
+            (Straight, if (values == List(14, 5, 4, 3, 2)) List(5, 4, 3, 2, 1) else values)//Straight
+
+        case (value, group1) :: tail if group1.length == 3 =>
+            (ThreeOfAKind, value :: values.filter(cardval => cardval != value)) //ThreeOfAKind
+
+        case (value1, group1) :: (value2, group2) :: tail if group1.length == 2 && group2.length == 2 =>
+            (TwoPairs, List(value1, value2) ++ values.filter(cardval => cardval != value1 && cardval != value2))//TwoPairs  
+
+        case (value, group1) :: tail if group1.length == 2 =>
+            (OnePair, value :: values.filter(cardval => cardval != value)) //OnePair
+
+        case _ => (HighCard, values)//HighCard
+        }
       }
+
+
+        def compare(hand1: Hand, hand2: Hand): Int = {
+            if (hand1.rank != hand2.rank) {
+                hand1.rank.id - hand2.rank.id
+            } else {
+                hand1.rankingValues.zip(hand2.rankingValues).map { case (v1, v2) => v1 - v2 }.find(_ != 0).getOrElse(0)
+            }
+        }
+
     }
 
-    def compare(hand1: Hand, hand2: Hand): Int = {
-      if (hand1.rank != hand2.rank) {
-        hand1.rank.id - hand2.rank.id
-      } else {
-        hand1.rankingValues.zip(hand2.rankingValues).map { case (v1, v2) => v1 - v2 }.find(_ != 0).getOrElse(0)
-      }
-    }
-  }
+    
 
+    
+  
+    
   def main(args: Array[String]): Unit = {
     val filename = "poker.txt"
     var player1Wins = 0

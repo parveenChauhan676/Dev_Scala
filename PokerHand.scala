@@ -69,6 +69,7 @@ object PokerHands {
 
   def compareHands(hand1: String, hand2: String): Int = {
     val (rank1, values1) = evaluateHand(hand1)
+    if(rank1==10)println("Straight flush is there ")
     val (rank2, values2) = evaluateHand(hand2)
 
     if (rank1 != rank2) {

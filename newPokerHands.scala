@@ -2,6 +2,9 @@ import scala.io.Source
 
 object PokerHandsEvaluator {
 
+  
+
+
   val cardValues: Map[Char, Int] = Map(
     '2' -> 2, '3' -> 3, '4' -> 4, '5' -> 5, '6' -> 6, '7' -> 7, '8' -> 8, '9' -> 9,
     'T' -> 10, 'J' -> 11, 'Q' -> 12, 'K' -> 13, 'A' -> 14
@@ -26,7 +29,9 @@ object PokerHandsEvaluator {
       case _ => false
     }
 
-
+  if (isFlush && isStraight && values.head == 14) {
+      Hand(10, values)  // Royal Flush
+  } 
   groups match {
       case (value1, group1) :: tail if group1.length == 4 =>
         Hand(8, value1 :: values.filter(card => card != value1))  // Four of a Kind
